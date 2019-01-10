@@ -4,11 +4,16 @@
     Author     : louge
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="jee.model.EmployeeBean"%>
 <%@page import="Utils.constants"%>
 <%@page import="jee.model.DataAccess"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<c:set var="id" value='${sessionScope["ID_user_details"]}'/>
+
+<c:set var="firstname" value=""/>
 
 <%
     String id = (String)session.getAttribute("ID_user_details");
