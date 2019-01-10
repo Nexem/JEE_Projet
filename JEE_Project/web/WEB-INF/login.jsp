@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,12 +8,11 @@
     </head>
     <body>  
         <h3 style="color:red">
-        <%
-          if (session.getAttribute("message")!= null){
-              out.println(session.getAttribute("message"));
-              session.removeAttribute("message");
-          }  
-        %>
+            <c:set var="message" value='${sessionScope["message"]}'/>
+            <c:if test="${not empty message}">
+                <c:out value="${message}"/>
+            </c:if>
+            
         </h3>
         <div class="content">
             <form method="POST" action="Controller">
